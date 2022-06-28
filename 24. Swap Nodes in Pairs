@@ -1,0 +1,16 @@
+class Solution:
+    def swapPairs(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        #Dummy head approach
+        #dummy head pointing to the first node
+        dummy = ListNode(0,head)
+        i = dummy
+        j = head
+        #iterate through the list while the pointer has TWO valid nodes ahead
+        while i and i.next and i.next.next:
+            #Swap the two nodes
+            i.next = j.next
+            j.next = j.next.next
+            i.next.next=j
+            j=j.next
+            i=i.next.next
+        return dummy.next
