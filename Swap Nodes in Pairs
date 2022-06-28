@@ -1,3 +1,4 @@
+#solution 1 
 class Solution:
     def swapPairs(self, head: Optional[ListNode]) -> Optional[ListNode]:
         #Dummy head approach
@@ -14,3 +15,36 @@ class Solution:
             j=j.next
             i=i.next.next
         return dummy.next
+        
+#solution 2
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def swapPairs(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        #Dummy head approach
+        #dummy head pointing to the first node
+        dummy = ListNode(0,head)
+        i = head
+        j = head.next
+        dummy = j
+        #iterate through the list while the pointer has TWO valid nodes ahead
+        while i and i.next:
+            if j.next==None:
+                j.next=i
+                i.next= None
+            else:
+                i.next = j.next
+                j.next = i
+                if i.next:
+                    i = i.next
+                    j = i.next
+        return dummy
+    
+            
+                
+            
+        
+        
