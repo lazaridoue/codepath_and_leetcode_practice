@@ -1,0 +1,52 @@
+# Solution that does not work 1st approach 
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def plusOne(self, head: ListNode) -> ListNode:
+        #initialize
+        count = 0
+        c = head
+        # iterate to the end of the list 
+        while c.next:
+            c = c.next
+        #check if the last one is nine
+        if c.val == 9:
+            c.val = 0
+        else:
+            c.val +=1 
+        return head
+        
+#second solution 
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def plusOne(self, head: ListNode) -> ListNode:
+        sentinel = ListNode(0)
+        sentinel.next=head
+        notNine = sentinel
+        
+        while head:
+            if head.val !=9:
+                notNine = head
+            head = head.next
+        
+        notNine.val += 1
+        notNine = notNine = notNine.next
+        
+        while notNine:
+            notNine.val = 0
+            notNine = notNine.next
+            
+        if sentinel.val !=0:
+            return sentinel
+        else:
+            return sentinel.next
+        
+#Time complexity O(n) iterating the entire length
+#Space Complexity O(1) constant extra space
