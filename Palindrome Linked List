@@ -1,0 +1,7 @@
+    def isPalindrome(self, head: Optional[ListNode]) -> bool:
+        vals = []
+        c = head
+        while c:
+            vals.append(c.val)
+            c = c.next
+        return vals == vals[::-1]  
