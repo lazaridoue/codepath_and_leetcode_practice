@@ -1,0 +1,10 @@
+#LRU (Least Recent Used) Cache
+#Keeps track of what was used and when it was used
+
+#Ordered Dictionary Approach  
+#An OrderedDict is a dict that remembers the order in that keys were first inserted.
+#If a new entry overwrites an existing entry, the original insertion position is left unchanged. Deleting an entry and reinserting it will move it to the end.
+#Ordered dictionary somehow can be used in the place where there is a use of hash Map and queue. It has characteristics of both into one.
+#Like queue, it remembers the order and it also allows insertion and deletion at both ends. And like a dictionary, it also behaves like a hash map. 
+#Source Geeksforgeeks
+
