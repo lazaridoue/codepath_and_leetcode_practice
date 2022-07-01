@@ -1,0 +1,71 @@
+# Brute force
+class Solution(object):
+    def getIntersectionNode(self, headA, headB):
+        """
+        :type head1, head1: ListNode
+        :rtype: ListNode
+        """
+        #set up two pointers
+        pointer1 = headA
+        while pointer1:
+            pointer2 = headB
+            while pointer2:
+                if pointer1 == pointer2:
+                    return pointer2
+                pointer2 = pointer2.next
+            pointer1 = pointer1.next
+        return None
+        
+ #List 
+ class Solution(object):
+    def getIntersectionNode(self, headA, headB):
+        """
+        :type head1, head1: ListNode
+        :rtype: ListNode
+        """
+        pointA = headA
+        pointB = headB
+        elementsA = []
+        while pointA:
+            elementsA.append(pointA)
+            pointA = pointA.next
+        while pointB:
+            if pointB in elementsA:
+                return pointB
+            pointB = pointB.next
+        return None
+ 
+ 
+ #Traversal on lengths
+ class Solution(object):
+    def getIntersectionNode(self, headA, headB):
+        """
+        :type head1, head1: ListNode
+        :rtype: ListNode
+        """
+        pointA = headA
+        pointB = headB
+        dummyA = headA
+        dummyB = headB
+        lengthA = 0
+        lengthB = 0
+        while pointA:
+            lengthA += 1
+            pointA = pointA.next
+        while pointB:
+            lengthB += 1
+            pointB = pointB.next
+        if lengthA > lengthB:
+            i=0
+            for i in range(lengthA-lengthB):
+                dummyA = dummyA.next
+        if lengthB > lengthA:
+            i=0
+            for i in range(lengthB-lengthA):
+                dummyB = dummyB.next
+        while dummyA and dummyB:
+            if dummyA == dummyB:
+                return dummyA
+            dummyA = dummyA.next
+            dummyB = dummyB.next
+        return None
